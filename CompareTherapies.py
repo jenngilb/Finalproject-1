@@ -22,7 +22,7 @@ simOutputs_statin = cohort_statin.simulate()
 # draw survival curves and histograms
 SupportMarkov.draw_survival_curves_and_histograms(simOutputs_none, simOutputs_statin)
 
-# print the estimates for the mean survival time and mean time to AIDS
+# print the estimates for the mean survival time and mean time to cardiac death
 SupportMarkov.print_outcomes(simOutputs_none, "No Therapy:")
 SupportMarkov.print_outcomes(simOutputs_statin, "Statin Therapy:")
 
