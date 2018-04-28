@@ -31,3 +31,4 @@ SupportMarkov.print_comparative_outcomes(simOutputs_none, simOutputs_statin)
 
 # report the CEA results
 SupportMarkov.report_CEA_CBA(simOutputs_none, simOutputs_statin)
+

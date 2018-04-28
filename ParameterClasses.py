@@ -13,7 +13,7 @@ class HealthStats(Enum):
     CD4_200to500 = 0
     CD4_200 = 1
     AIDS = 2
-    CVD_DEATH = 3
+    HIV_DEATH = 3
     BACKGROUND_DEATH = 4
 
 
@@ -68,13 +68,13 @@ class _Parameters:
         return self._prob_matrix[state.value]
 
     def get_annual_state_cost(self, state):
-        if state == HealthStats.CVD_DEATH or state == HealthStats.BACKGROUND_DEATH:
+        if state == HealthStats.HIV_DEATH or state == HealthStats.BACKGROUND_DEATH:
             return 0
         else:
             return self._annualStateCosts[state.value]
 
     def get_annual_state_utility(self, state):
-        if state == HealthStats.CVD_DEATH or state == HealthStats.BACKGROUND_DEATH:
+        if state == HealthStats.HIV_DEATH or state == HealthStats.BACKGROUND_DEATH:
             return 0
         else:
             return self._annualStateUtilities[state.value]
@@ -163,7 +163,7 @@ class ParametersProbabilistic(_Parameters):
         # for all health states
         for s in HealthStats:
             # if the current state is death
-            if s in [HealthStats.CVD_DEATH, HealthStats.BACKGROUND_DEATH]:
+            if s in [HealthStats.HIV_DEATH, HealthStats.BACKGROUND_DEATH]:
                 # the probability of staying in this state is 1
                 self._prob_matrix[s.value][s.value] = 1
             else:
@@ -206,7 +206,7 @@ def calculate_prob_matrix_none():
     # for all health states
     for s in HealthStats:
         # if the current state is death
-        if s in [HealthStats.CVD_DEATH, HealthStats.BACKGROUND_DEATH]:
+        if s in [HealthStats.HIV_DEATH, HealthStats.BACKGROUND_DEATH]:
             # the probability of staying in this state is 1
             prob_matrix[s.value][s.value] = 1
         else:
@@ -225,7 +225,7 @@ def add_background_mortality(prob_matrix):
     rate_matrix = MarkovCls.discrete_to_continuous(prob_matrix, 1)
     # add mortality rates
     for s in HealthStats:
-        if s not in [HealthStats.CVD_DEATH, HealthStats.BACKGROUND_DEATH]:
+        if s not in [HealthStats.HIV_DEATH, HealthStats.BACKGROUND_DEATH]:
             rate_matrix[s.value][HealthStats.BACKGROUND_DEATH.value] \
                 = -np.log(1 - Data.ANNUAL_PROB_BACKGROUND_MORT)
 
@@ -253,7 +253,7 @@ def calculate_prob_matrix_statin(matrix_none, statin_rr):
 
     # diagonal elements are calculated to make sure the sum of each row is 1
     for s in HealthStats:
-        if s not in [HealthStats.CVD_DEATH, HealthStats.BACKGROUND_DEATH]:
+        if s not in [HealthStats.HIV_DEATH, HealthStats.BACKGROUND_DEATH]:
             matrix_statin[s.value][s.value] = 1 - sum(matrix_statin[s.value][s.value + 1:])
 
     return matrix_statin
