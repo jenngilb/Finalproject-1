@@ -17,10 +17,10 @@ def print_outcomes(simOutput, therapy_name):
         interval=simOutput.get_sumStat_survival_times().get_t_CI(alpha=Settings.ALPHA),
         deci=2)
 
-    # mean and confidence interval text of time to AIDS
+    # mean and confidence interval text of time to CVD death
     time_to_HIV_death_CI_text = F.format_estimate_interval(
-        estimate=simOutput.get_sumStat_time_to_AIDS().get_mean(),
-        interval=simOutput.get_sumStat_time_to_AIDS().get_t_CI(alpha=Settings.ALPHA),
+        estimate=simOutput.get_sumStat_time_to_CVDdeath().get_mean(),
+        interval=simOutput.get_sumStat_time_to_CVDdeath().get_t_CI(alpha=Settings.ALPHA),
         deci=2)
 
     # mean and confidence interval text of discounted total cost
@@ -40,7 +40,7 @@ def print_outcomes(simOutput, therapy_name):
     print(therapy_name)
     print("  Estimate of mean survival time and {:.{prec}%} confidence interval:".format(1 - Settings.ALPHA, prec=0),
           survival_mean_CI_text)
-    print("  Estimate of mean time to AIDS and {:.{prec}%} confidence interval:".format(1 - Settings.ALPHA, prec=0),
+    print("  Estimate of mean time to death from cardiovascular disease and {:.{prec}%} confidence interval:".format(1 - Settings.ALPHA, prec=0),
           time_to_HIV_death_CI_text)
     print("  Estimate of discounted cost and {:.{prec}%} confidence interval:".format(1 - Settings.ALPHA, prec=0),
           cost_mean_CI_text)

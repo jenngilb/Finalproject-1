@@ -12,7 +12,7 @@ class HealthStats(Enum):
     """ health states of patients with HIV """
     CD4_200to500 = 0
     CD4_200 = 1
-    AIDS = 2
+    CVDdeath = 2
     HIV_DEATH = 3
     BACKGROUND_DEATH = 4
 
