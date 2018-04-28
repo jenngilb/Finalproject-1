@@ -10,7 +10,8 @@ ADD_BACKGROUND_MORT = True  # if background mortality should be added
 DELTA_T = 1/4       # years
 
 PSA_ON = True      # if probabilistic sensitivity analysis is on
-# transition matrix
+
+# transition matrix - edit data here
 TRANS_MATRIX = [
     [1251,  350,    116,    17],   # Healthy with HIV
     [0,     731,    512,    15],   # HIV+ and experienced cardiac event
