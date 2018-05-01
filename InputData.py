@@ -13,16 +13,18 @@ PSA_ON = True      # if probabilistic sensitivity analysis is on
 
 # transition matrix - edit data here
 TRANS_MATRIX = [
-    [1251,  350,    116,    17],   # Healthy with HIV
-    [0,     731,    512,    15],   # HIV+ and experienced cardiac event
-    [0,     0,      1312,   437],  # Death from cardiac event
+    [3093,  864,    287,    42],   # Healthy with HIV
+    [0,     1807,    1265,    37],   # HIV+ and experienced cardiac event
+    [0,     0,      3216,   1071],  # severe cardiac event
     ]
+
+
 
 # annual cost of each health state
 ANNUAL_STATE_COST = [
     34316.0,   # Healthy with HIV - Annual medical cost estimates for HIV-infected persons, adjusted for age, sex, race/ethnicity, and transmission risk group, were from the HIV Research Network (range $1,854–$4,545/month). We took the average - $3618 - and multiplied by 12 months for $43416 - source: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4359630/
     37892.6,   # HIV+ and experienced cardiac event - for patients with Medicaid, this is an incremental $4959 additional cost. For those with other insurance than Medicaid, there is an incremental $2655 cost. Because about 40% of people with HIV use Medicaid, we solved for this cost as follows (.6*2655+.4*4959)
-    77679.83    # Death from cardiac event - data shows this costs 1.2-2.9 times more than a nonfatal cardiac event. We took the average and multipled the cost of a cardiac event above by 2.05. source: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4467662/
+    77679.83    # Severe, fatal cardiac event - data shows this costs 1.2-2.9 times more than a nonfatal cardiac event. We took the average and multipled the cost of a cardiac event above by 2.05. source: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4467662/
     ]
 #Source for data on cost:  https://www.ncbi.nlm.nih.gov/pubmed/28933204 - limitation: didn't account for fact that cost for elderly patients may be higher
 #Source for data on HIV pop with Medicaid as insurance: https://www.kff.org/hivaids/fact-sheet/medicaid-and-hiv/
@@ -38,7 +40,7 @@ ANNUAL_STATE_UTILITY = [
     ]
 
 # annual cost of therapy versus untreated
-Nointervention_COST = 36700 #Data on cost of major cardiac events, from cost-effectiveness study and IMS data, source: http://www.ajmc.com/journals/issue/2016/2016-vol22-n5/a-cost-effectiveness-analysis-of-over-the-counter-statins
+Nointervention_COST = 0
 OTCStatin_COST = 305.04 #Data on annual cost of over the counter statin medication, from cost-effectiveness study and IMS data, source: http://www.ajmc.com/journals/issue/2016/2016-vol22-n5/a-cost-effectiveness-analysis-of-over-the-counter-statins
 
 # treatment relative risk
