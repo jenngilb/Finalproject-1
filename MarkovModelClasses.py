@@ -258,7 +258,7 @@ class CohortOutputs:
 
         # summary statistics
         self._sumStat_survivalTime = StatCls.SummaryStat('Patient survival time', self._survivalTimes)
-        self._sumState_timeToCVDdeath = StatCls.SummaryStat('Time until death from cardiovascular disease', self._times_to_CVDdeath)
+        self._sumState_timeToCVDdeath = StatCls.SummaryStat('Time until severe cardiovascular disease', self._times_to_CVDdeath)
         self._sumStat_cost = StatCls.SummaryStat('Patient discounted cost', self._costs)
         self._sumStat_utility = StatCls.SummaryStat('Patient discounted utility', self._utilities)
 
