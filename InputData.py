@@ -28,11 +28,19 @@ ANNUAL_STATE_COST = [
     77679.83   # Fatal cardiac event - data shows this costs 1.2-2.9 times more than a nonfatal cardiac event. We took the average and multipled the cost of a cardiac event above by 2.05. source: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4467662/
     ]
 
-#sensitivity analysis - changing cost
+#sensitivity analysis - cost of care for Medicaid only patients (most expensive)
 #ANNUAL_STATE_COST = [
     #34316.0,   # Healthy with HIV - Annual medical cost estimates for HIV-infected persons, adjusted for age, sex, race/ethnicity, and transmission risk group, were from the HIV Research Network (range $1,854–$4,545/month). We took the average - $3618 - and multiplied by 12 months for $43416 - source: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4359630/
-    #39275.0,   # Experienced mild cardiac event - for patients with Medicaid, this is an incremental $4959 additional cost. For those with other insurance than Medicaid, there is an incremental $2655 cost. Because about 40% of people with HIV use Medicaid, we solved for this cost as follows (.6*2655+.4*4959) = 3576.6
-    #44234.0,   #Experienced severe cardiac event - we estimated this would be four times the cost of a mild cardiac event (4*3575.6+34316.0)
+    #39275.0,   # Experienced mild cardiac event - for patients with Medicaid, this is an incremental $4959 additional cost.
+    #54152.0,   #Experienced severe cardiac event - we estimated this would be four times the cost of a mild cardiac event (4*4959+34316.0)
+    #77679.83   # Fatal cardiac event - data shows this costs 1.2-2.9 times more than a nonfatal cardiac event. We took the average and multipled the cost of a cardiac event above by 2.05. source: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4467662/
+    #]
+
+#sensitivity analysis - cost of care for only privately insured patients (least expensive)
+#ANNUAL_STATE_COST = [
+    #34316.0,   # Healthy with HIV - Annual medical cost estimates for HIV-infected persons, adjusted for age, sex, race/ethnicity, and transmission risk group, were from the HIV Research Network (range $1,854–$4,545/month). We took the average - $3618 - and multiplied by 12 months for $43416 - source: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4359630/
+    #36791.0,   # Experienced mild cardiac event - for patients without Medicaid, assume $2655 incremental cost.
+    #44.936,   #Experienced severe cardiac event - we estimated this would be four times the cost of a mild cardiac event (4*2655+34316.0)
     #77679.83   # Fatal cardiac event - data shows this costs 1.2-2.9 times more than a nonfatal cardiac event. We took the average and multipled the cost of a cardiac event above by 2.05. source: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4467662/
     #]
 
@@ -55,6 +63,14 @@ ANNUAL_STATE_UTILITY = [
     #0.9,   # HIV+ and otherwise healthy
     #0.8,   # Mild cardiac event
     #0.5, # Severe cardiac event
+    #0.00001 #fatal cardiac event
+    #]
+
+# sensitivity: decreasing annual health utility during cardiac events
+#ANNUAL_STATE_UTILITY = [
+    #0.9,   # HIV+ and otherwise healthy
+    #0.5,   # Mild cardiac event
+    #0.2, # Severe cardiac event
     #0.00001 #fatal cardiac event
     #]
 
